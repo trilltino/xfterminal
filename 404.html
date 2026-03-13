@@ -3,13 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>404 - XForce Solutions</title>
-  <script>
-    // Redirect to index.html and let React Router handle the routing
-    sessionStorage.setItem('redirect', location.pathname);
-    location.pathname = '/xfterminal/';
+  <script type="text/javascript">
+    // Single Page App for GitHub Pages
+    // https://github.com/rafrex/spa-github-pages
+    // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+    // ----------------------------------------------------------------------
+    // This script takes the current hash and redirect to the
+    // correct url while parsing the path and search parameters.
+    (function(l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&');
+        }).join('?');
+        window.location.replace(l.pathname + decoded + l.hash);
+      }
+    }(window.location))
   </script>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <script>
+    window.location.replace('/xfterminal/#' + window.location.pathname);
+  </script>
 </body>
 </html>
